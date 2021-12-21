@@ -1,12 +1,7 @@
 package main
 import (
-	"fmt"
 	"strings"
 )
-
-func main () {
-	fmt.Println(High("what time are we climbing up the volcano"))
-}
 
 func High(s string) string {
 	eng := "abcdefghijklmnopqrstuvwxyz"
