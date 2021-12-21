@@ -1,11 +1,4 @@
 package main
-import (
-	"fmt"
-)
-
-func main () {
-	fmt.Println(GrowingPlan(10, 9, 4))
-}
 
 func GrowingPlan(upSpeed, downSpeed, desiredHeight int) int {
 	var i int = 0
