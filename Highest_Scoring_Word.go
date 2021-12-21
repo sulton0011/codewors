@@ -5,21 +5,23 @@ import (
 )
 
 func main () {
-	fmt.Println(High("man i need a taxi up to ubud"))
+	fmt.Println(High("what time are we climbing up the volcano"))
 }
 
 func High(s string) string {
+	eng := "abcdefghijklmnopqrstuvwxyz"
+	sLst := strings.Split(s, " ")
 	a := ""
 	aSum := 0
-	sList := strings.Split(s, " ")
-	for i := range sList {
+
+	for i := range sLst {
 		sum := 0
-		for j := range sList[i] {
-			sum += int(sList[i][j])
+		for j := range sLst[i] {
+			sum += strings.Index(eng, string(sLst[i][j])) + 1
 		}
 		if aSum < sum {
 			aSum = sum
-			a = sList[i]
+			a = sLst[i]
 		}
 	}
 	return a
