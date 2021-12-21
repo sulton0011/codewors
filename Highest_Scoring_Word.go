@@ -10,9 +10,17 @@ func main () {
 
 func High(s string) string {
 	a := ""
+	aSum := 0
 	sList := strings.Split(s, " ")
 	for i := range sList {
-		fmt.Println(i, sList[i], a)
+		sum := 0
+		for j := range sList[i] {
+			sum += int(sList[i][j])
+		}
+		if aSum < sum {
+			aSum = sum
+			a = sList[i]
+		}
 	}
-	return ""
+	return a
 }
