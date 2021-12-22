@@ -1,13 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"strings"
 )
-
-func main () {
-	fmt.Println(SpinWords("Hey fellow warriors"))
-}
 
 func SpinWords(str string) string {
 	s := strings.Split(str, " ")
