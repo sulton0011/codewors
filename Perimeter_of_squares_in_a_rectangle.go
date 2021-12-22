@@ -10,8 +10,12 @@ func main () {
 
 func Perimeter(n int) int {
 	sum := 0
-	for i := 1; i <= n; i ++{
-		sum += i
+	c, b := 1, 1
+	for i := 1; i < n; i ++{
+		d := b + c;
+		c = b;
+		b = d;
+		sum += d
 	}
-	return sum
+	return (sum + 2) * 4
 }
