@@ -9,8 +9,9 @@ func main () {
 }
 
 func Perimeter(n int) int {
-	if n == 0 {
-		return 1
+	sum := 0
+	for i := 1; i <= n; i ++{
+		sum += i
 	}
-	return n + Perimeter(n - 1)
+	return sum
 }
