@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"strings"
-	"unicode/utf8"
 )
 
 func main () {
@@ -11,17 +10,17 @@ func main () {
 }
 
 func SpinWords(str string) string {
-	strList := strings.Split(str, " ")
-	str = ""
-	for i := 0; i < len(strList); i ++{
-		if utf8.RuneCountInString(string(strList[i])) >= 5 {
-			str += " "
-			for j := utf8.RuneCountInString(string(strList[i])) - 1; j >= 0; j --{
-				str += string(strList[i][j])
-			}
-		}else {
-			str += " " + string(strList[i])
+	s := strings.Split(str, " ")
+  
+	for i, v := range s {
+	  if len(v) >= 5 {
+		res := ""
+		for _, r := range v {
+		  res = string(r) + res
 		}
+		s[i] = res
+	  }
 	} 
-	return str[1:]
+	
+	return strings.Join(s, " ")
 }// SpinWords
