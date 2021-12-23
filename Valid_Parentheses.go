@@ -11,19 +11,15 @@
 package main
 
 func ValidParentheses(parens string) bool {
-    count1 := 0
-	count := 0
-	for _, i := range parens {
-		if string(i) == "(" && count1 <= count{
-			count ++
-		}
-		if string(i) == ")" && count1 <= count {
-			count1 ++
-		}
-	}
-	if count == count1 {
-		return true
-	}else {
-		return false
-	}
+	n := 0
+
+    for _, char := range parens {
+      switch char {
+      case '(': n++
+      case ')': n--
+      }
+      if n < 0 {return false}
+    }
+    
+    return n == 0
 }
