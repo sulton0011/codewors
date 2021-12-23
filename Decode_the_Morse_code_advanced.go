@@ -10,11 +10,11 @@ func main () {
 }
 
 func DecodeBits(bits string) string {
+	bits = strings.ReplaceAll(bits, "111111", "-")
+	bits = strings.ReplaceAll(bits, "11", ".")
 	bits = strings.ReplaceAll(bits, "00000000000000", "   ")
 	bits = strings.ReplaceAll(bits, "000000", " ")
 	bits = strings.ReplaceAll(bits, "0", "")
-	bits = strings.ReplaceAll(bits, "111111", "-")
-	bits = strings.ReplaceAll(bits, "11", ".")
 	return DecodeMorse(bits)
 }
   
@@ -31,8 +31,7 @@ func DecodeMorse(morseCode string) (decoded string) {
 		"..---" : "2", "...--" : "3", "....-" : "4", "....." : "5",
 		"-...." : "6", "--..." : "7", "---.." : "8", "----." : "9",
 	}
-	
-	for _, word := range strings.Split(strings.TrimSpace(morseCode), "   ") {
+	for _, word := range strings.Split(morseCode, "   ") {
 		for _, char := range strings.Split(word, " "){
 		  decoded += MORSE_CODE[char]
 		}
