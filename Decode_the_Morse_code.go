@@ -9,6 +9,7 @@ func main () {
 }
 
 func DecodeMorse(morseCode string) string {
+	morseCodeList := strings.Split(morseCode, " ")
 	Morse := map[string]string {
 		".-" : "A", "-..." : "B", "-.-." : "C",
 		"-.." : "D", "." : "E", "..-." : "F",
@@ -21,10 +22,10 @@ func DecodeMorse(morseCode string) string {
 		"..---" : "2", "...--" : "3", "....-" : "4", "....." : "5",
 		"-...." : "6", "--..." : "7", "---.." : "8", "----." : "9",
 	}
-	for i, j := range Morse {
-		morseCode = strings.ReplaceAll(morseCode, i, j)
+	for i, j := range morseCodeList {
+		morseCodeList[i] = strings.ReplaceAll(morseCode, j, Morse[j])
 	}
-	return morseCode
+	return morseCodeList[0]
   }
   
   
