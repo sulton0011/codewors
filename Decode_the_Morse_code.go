@@ -5,11 +5,12 @@ import (
 	"strings"
 )
 func main () {
-	fmt.Println(DecodeMorse(".--"))
+	// fmt.Println(DecodeMorse(".-- "))
+	DecodeMorse(".... . -.--   .--- ..- -.. .")
 }
 
 func DecodeMorse(morseCode string) string {
-	morseCodeList := strings.Split(morseCode, " ")
+	morseCodeList := strings.Split(morseCode, "   ")
 	Morse := map[string]string {
 		".-" : "A", "-..." : "B", "-.-." : "C",
 		"-.." : "D", "." : "E", "..-." : "F",
@@ -23,9 +24,14 @@ func DecodeMorse(morseCode string) string {
 		"-...." : "6", "--..." : "7", "---.." : "8", "----." : "9",
 	}
 	for i, j := range morseCodeList {
-		morseCodeList[i] = strings.ReplaceAll(morseCode, j, Morse[j])
+		a := strings.Split(j, " ")
+		for index, qimat := range a {
+			a[index] = strings.ReplaceAll(a[index], qimat, Morse[qimat])
+		}
+		morseCodeList[i] = strings.Join(a, "")
+		fmt.Println(morseCodeList[i])
 	}
-	return morseCodeList[0]
+	return ""
   }
   
   
