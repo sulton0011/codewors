@@ -1,12 +1,5 @@
 package main
 
-import (
-	"fmt"
-	// "strings"
-)
-func main () {
-	fmt.Println(Decode("MMVIII"))
-}
 func Decode(roman string) int {
 	numerals := map[rune]int{
 	  'I': 1,
