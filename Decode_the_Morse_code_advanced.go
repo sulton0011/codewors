@@ -12,15 +12,29 @@ func main () {
 func DecodeBits(bits string) string {
 	bits = strings.ReplaceAll(bits, "00000000000000", "   ")
 	bits = strings.ReplaceAll(bits, "000000", " ")
+	bits = strings.ReplaceAll(bits, "0", "")
 	bits = strings.ReplaceAll(bits, "111111", "-")
 	bits = strings.ReplaceAll(bits, "11", ".")
 	return DecodeMorse(bits)
 }
   
 func DecodeMorse(morseCode string) (decoded string) {
+	MORSE_CODE := map[string]string{
+		".-" : "A", "-..." : "B", "-.-." : "C",
+		"-.." : "D", "." : "E", "..-." : "F",
+		"--." : "G", "...." : "H", ".." : "I",
+		".---" : "J", "-.-" : "K", ".-.." : "L",
+		"--" : "M", "-." : "N", "---" : "O", ".--." : "P",
+		"--.-" : "Q", ".-." : "R", "..." : "S", "-" : "T",
+		"..-" : "U", "...-" : "V", ".--" : "W", "-..-" : "X",
+		"-.--" : "Y", "--.." : "Z", "-----" : "0", ".----" : "1",
+		"..---" : "2", "...--" : "3", "....-" : "4", "....." : "5",
+		"-...." : "6", "--..." : "7", "---.." : "8", "----." : "9",
+	}
+	
 	for _, word := range strings.Split(strings.TrimSpace(morseCode), "   ") {
 		for _, char := range strings.Split(word, " "){
-		  decoded += char
+		  decoded += MORSE_CODE[char]
 		}
 		decoded += " "
 	}
