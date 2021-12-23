@@ -5,7 +5,7 @@ import (
 	// "strings"
 )
 func main () {
-	fmt.Println(Decode("MDCLXIIV"))
+	fmt.Println(Decode("MMVIII"))
 }
 func Decode(roman string) (sum int) {
 	RimSon := map[string]int{
@@ -19,9 +19,10 @@ func Decode(roman string) (sum int) {
 	}
 	for i := 0; i < len(roman); i ++ {
 		var a bool
-		if i < len(roman) - 1{
-			fmt.Println(RimSon[string(roman[i + 1])], RimSon[string(roman[i])])
+		if i < len(roman) - 2{
 			a = (RimSon[string(roman[i + 1])] > RimSon[string(roman[i])] || RimSon[string(roman[i + 2])] > RimSon[string(roman[i])])
+			}else if i < len(roman) - 1{
+			a = (RimSon[string(roman[i + 1])] > RimSon[string(roman[i])])
 		}
 		
 		if a {
