@@ -10,19 +10,11 @@
 
 package main
 
-import (
-	"fmt"
-)
-
-func main (){
-	fmt.Println(ValidParentheses("()"))
-}
-
 func ValidParentheses(parens string) bool {
     count1 := 0
 	count := 0
 	for _, i := range parens {
-		if string(i) == "(" && count1 < count{
+		if string(i) == "(" && count1 <= count{
 			count ++
 		}
 		if string(i) == ")" && count1 <= count {
